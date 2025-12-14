@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr. Sayed Magdy Elamer - Professional General Dentist in Mansoura, Egypt">
+    <title>Dr. Sayed Magdy Elamer | General Dentist</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --primary-color: #00a8cc;
+            --secondary-color: #0077b6;
+            --accent-color: #48cae4;
+            --dark-blue: #023e8a;
+            --text-dark: #1a1a2e;
+            --text-gray: #555;
+            --text-light: #777;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 168, 204, 0.1);
+            --shadow-hover: 0 15px 40px rgba(0, 168, 204, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== Dark Theme Variables ===== */
+        [data-theme="dark"] {
+            --text-dark: #f0f0f0;
+            --text-gray: #b8b8b8;
+            --text-light: #999;
+            --bg-light: #1a1a2e;
+            --white: #16213e;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        [data-theme="dark"] body {
+            background-color: #0f1419;
+            color: #f0f0f0;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(22, 33, 62, 0.95);
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, #0f1419 0%, #1a1a2e 100%);
+        }
+
+        [data-theme="dark"] .section-light {
+            background: #16213e;
+        }
+
+        [data-theme="dark"] .section-dark {
+            background: #0f1419;
+        }
+
+        /* ===== Global Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* ===== RTL Support for Arabic ===== */
+        [dir="rtl"] {
+            font-family: 'Cairo', 'Poppins', sans-serif;
+        }
+
+        [dir="rtl"] .timeline::before {
+            left: auto;
+            right: 50%;
+        }
+
+        [dir="rtl"] .timeline-item {
+            padding-right: 0;
+            padding-left: 3rem;
+        }
+
+        [dir="rtl"] .timeline-item:nth-child(even) {
+            padding-right: 3rem;
+            padding-left: 0;
+        }
+
+        [dir="rtl"] .timeline-dot {
+            right: auto;
+            left: -10px;
+        }
+
+        [dir="rtl"] .timeline-item:nth-child(even) .timeline-dot {
+            left: auto;
+            right: -10px;
+        }
+
+        [dir="rtl"] .timeline-content li::before {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .timeline-content li {
+            padding-left: 0;
+            padding-right: 1.5rem;
+        }
+
+        /* ===== Navigation ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        /* ===== Theme & Language Toggle ===== */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle,
+        .lang-toggle {
+            background: var(--bg-light);
+            border: 2px solid var(--primary-color);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle:hover,
+        .lang-toggle:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e3f4f8 100%);
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 168, 204, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-subtitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-name {
+            color: var(--primary-color);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 168, 204, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 168, 204, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            border-radius: 30px;
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: var(--shadow-hover);
+            display: block;
+        }
+
+        /* ===== Section Styles ===== */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-light {
+            background: var(--white);
+        }
+
+        .section-dark {
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-subtitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* ===== About Section ===== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* ===== Education Section ===== */
+        .education-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .education-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .education-info h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-info .university {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .education-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--bg-light);
+        }
+
+        .detail-item {
+            text-align: center;
+        }
+
+        .detail-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Experience Timeline ===== */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 50%;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            padding-right: 0;
+            padding-left: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 4px var(--accent-color);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+            right: auto;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-location {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-content li {
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* ===== Courses Grid ===== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-left-color: var(--accent-color);
+        }
+
+        .course-card h3 {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-provider {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ===== Skills Section ===== */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .skills-category h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            border-radius: 10px;
+            transition: width 1s ease-out;
+            width: 0;
+        }
+
+        /* ===== Projects/Cases Section ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* ===== Memberships Section ===== */
+        .memberships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .membership-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .membership-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .membership-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .membership-card h3 {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .membership-card p {
+            color: var(--text-gray);
+        }
+
+        /* ===== Languages Section ===== */
+        .languages-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            min-width: 250px;
+        }
+
+        .language-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .language-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .language-item h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-level {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* ===== Contact Section ===== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .contact-card h3 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-card a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== Animations ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                gap: 1rem;
+            }
+
+            [dir="rtl"] .nav-links {
+                right: auto;
+                left: -100%;
+            }
+
+            [dir="rtl"] .nav-links.active {
+                left: 0;
+                right: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-controls {
+                order: -1;
+                gap: 0.5rem;
+            }
+
+            .theme-toggle,
+            .lang-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 3rem;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                padding-left: 3rem;
+                padding-right: 0;
+            }
+
+            .timeline-dot {
+                left: -10px !important;
+                right: auto !important;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .education-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .education-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ===== Scroll to Top Button ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0, 168, 204, 0.4);
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 168, 204, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" data-en="Dr. Sayed Magdy" data-ar="د. سيد مجدي">Dr. Sayed Magdy</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="#about" data-en="About" data-ar="عني">About</a></li>
+                <li><a href="#education" data-en="Education" data-ar="التعليم">Education</a></li>
+                <li><a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a></li>
+                <li><a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a></li>
+                <li><a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+                <li><a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span id="langText">العربية</span>
+                </button>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-subtitle" data-en="Welcome to My Portfolio" data-ar="مرحباً بك في موقعي">Welcome to My Portfolio</p>
+                <h1 class="hero-title">
+                    <span data-en="I'm" data-ar="أنا">I'm</span> <span class="hero-name" data-en="Dr. Sayed Magdy Elamer" data-ar="د. سيد مجدي العامر">Dr. Sayed Magdy Elamer</span>
+                </h1>
+                <p class="hero-description" data-en="General Dentist | Restorative & Surgical Dentistry Specialist" data-ar="طبيب أسنان عام | أخصائي طب الأسنان الترميمي والجراحي">
+                    General Dentist | Restorative & Surgical Dentistry Specialist
+                </p>
+                <p class="hero-description" data-en="Delivering exceptional dental care with precision and compassion in Mansoura, Egypt" data-ar="تقديم رعاية أسنان استثنائية بدقة وشفقة في المنصورة، مصر">
+                    Delivering exceptional dental care with precision and compassion in Mansoura, Egypt
+                </p>
+                <div class="hero-buttons">
+                    <a href="./dr_sayed_magdy_cv.pdf" download class="btn btn-primary">
+                        <span data-en="📄 Download CV" data-ar="📄 تحميل السيرة الذاتية">📄 Download CV</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span data-en="📞 Contact Me" data-ar="📞 تواصل معي">📞 Contact Me</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="./assets/dr_sayed_1.jpeg" alt="Dr. Sayed Magdy Elamer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-light" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle" data-en="Get to Know Me" data-ar="تعرف علي">Get to Know Me</p>
+                <h2 class="section-title" data-en="About Me" data-ar="عني">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p data-en="A dedicated General Dentist with over 4 years of clinical experience in restorative and surgical dentistry. Graduated with honors from Horus University in Egypt, achieving a CGPA of 3.71/4.00." data-ar="طبيب أسنان عام متفاني مع أكثر من 4 سنوات من الخبرة السريرية في طب الأسنان الترميمي والجراحي. تخرج بمرتبة الشرف من جامعة حورس في مصر، بمعدل تراكمي 3.71/4.00.">
+                        A dedicated General Dentist with over 4 years of clinical experience in restorative and surgical dentistry. 
+                        Graduated with honors from Horus University in Egypt, achieving a CGPA of 3.71/4.00.
+                    </p>
+                    <p data-en="My clinical journey spans multiple prestigious dental centers, where I've developed expertise in comprehensive dental care, from routine procedures to complex restorative cases. I am committed to continuous learning and staying current with the latest advancements in dental medicine." data-ar="تمتد رحلتي السريرية عبر مراكز أسنان مرموقة متعددة، حيث طورت خبرة في الرعاية الشاملة للأسنان، من الإجراءات الروتينية إلى الحالات الترميمية المعقدة. أنا ملتزم بالتعلم المستمر ومواكبة أحدث التطورات في طب الأسنان.">
+                        My clinical journey spans multiple prestigious dental centers, where I've developed expertise in comprehensive 
+                        dental care, from routine procedures to complex restorative cases. I am committed to continuous learning and 
+                        staying current with the latest advancements in dental medicine.
+                    </p>
+                    <p data-en="Passionate about patient education and preventive care, I strive to create comfortable experiences while delivering the highest quality dental treatments. My approach combines technical excellence with compassionate patient care." data-ar="شغوف بتثقيف المرضى والرعاية الوقائية، أسعى لخلق تجارب مريحة مع تقديم أعلى جودة من علاجات الأسنان. يجمع نهجي بين التميز التقني والرعاية الرحيمة للمرضى.">
+                        Passionate about patient education and preventive care, I strive to create comfortable experiences while 
+                        delivering the highest quality dental treatments. My approach combines technical excellence with compassionate 
+                        patient care.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label" data-en="Years Experience" data-ar="سنوات الخبرة">Years Experience</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">3.71</div>
+                        <div class="stat-label" data-en="CGPA / 4.00" data-ar="المعدل التراكمي / 4.00">CGPA / 4.00</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label" data-en="Certifications" data-ar="الشهادات">Certifications</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label" data-en="Patient Satisfaction" data-ar="رضا المرضى">Patient Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section-dark" id="education">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle" data-en="Academic Background" data-ar="الخلفية الأكاديمية">Academic Background</p>
+                <h2 class="section-title" data-en="Education" data-ar="التعليم">Education</h2>
+            </div>
+            <div class="education-card fade-in">
+                <div class="education-header">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-info">
+                        <h3 data-en="Bachelor of Dentistry (BDS)" data-ar="بكالوريوس طب الأسنان">Bachelor of Dentistry (BDS)</h3>
+                        <p class="university" data-en="Horus University in Egypt" data-ar="جامعة حورس في مصر">Horus University in Egypt</p>
+                    </div>
+                </div>
+                <div class="education-details">
+                    <div class="detail-item">
+                        <div class="detail-label" data-en="Duration" data-ar="المدة">Duration</div>
+                        <div class="detail-value">2016 - 2021</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label" data-en="CGPA" data-ar="المعدل التراكمي">CGPA</div>
+                        <div class="detail-value">3.71 / 4.00</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label" data-en="Grade" data-ar="التقدير">Grade</div>
+                        <div class="detail-value" data-en="Excellent with Honors" data-ar="ممتاز مع مرتبة الشرف">Excellent with Honors</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section-light" id="experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle" data-en="Career Journey" data-ar="مسيرة مهنية">Career Journey</p>
+                <h2 class="section-title" data-en="Professional Experience" data-ar="الخبرة المهنية">Professional Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">📅 Oct 2023 - Present</div>
+                        <h3>General Dentist</h3>
+                        <p class="timeline-location">📍 Dr. Mona Kash Dental Center, Mansoura, Egypt</p>
+                        <ul>
+                            <li>Performing comprehensive dental examinations and treatments</li>
+                            <li>Specializing in restorative and cosmetic dentistry procedures</li>
+                            <li>Managing complex cases with precision and care</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">📅 Jan 2023 - Oct 2023</div>
+                        <h3>General Dentist</h3>
+                        <p class="timeline-location">📍 Smile Experts Dental Center, Mansoura, Egypt</p>
+                        <ul>
+                            <li>Conducted routine dental procedures and emergency treatments</li>
+                            <li>Developed treatment plans for diverse patient needs</li>
+                            <li>Collaborated with dental specialists for complex cases</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">📅 Jul 2022 - Jan 2023</div>
+                        <h3>General Dentist</h3>
+                        <p class="timeline-location">📍 Dr. Essam Nagy Dental Clinic, Mansoura, Egypt</p>
+                        <ul>
+                            <li>Performed restorative and surgical dental procedures</li>
+                            <li>Provided patient education on oral health and hygiene</li>
+                            <li>Maintained detailed patient records and treatment documentation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">📅 Oct 2021 - Jul 2022</div>
+                        <h3>Intern Dentist</h3>
+                        <p class="timeline-location">📍 Mansoura University Hospital, Mansoura, Egypt</p>
+                        <ul>
+                            <li>Completed comprehensive clinical rotations across all dental specialties</li>
+                            <li>Assisted senior dentists in complex procedures</li>
+                            <li>Gained hands-on experience in patient management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="section-dark" id="courses">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Continuous Learning</p>
+                <h2 class="section-title">Courses & Certificates</h2>
+                <p class="section-description">
+                    Committed to staying at the forefront of dental innovation through continuous professional development
+                </p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card fade-in">
+                    <h3>Advanced Endodontics</h3>
+                    <p class="course-provider">Egyptian Dental Association</p>
+                </div>
+                <div class="course-card fade-in">
+                    <h3>Cosmetic Dentistry Mastery</h3>
+                    <p class="course-provider">International Dental Academy</p>
+                </div>
+                <div class="course-card fade-in">
+                    <h3>Digital Dentistry & CAD/CAM</h3>
+                    <p class="course-provider">Modern Dental Institute</p>
+                </div>
+                <div class="course-card fade-in">
+                    <h3>Implantology Fundamentals</h3>
+                    <p class="course-provider">Middle East Dental Conference</p>
+                </div>
+                <div class="course-card fade-in">
+                    <h3>Pediatric Dentistry</h3>
+                    <p class="course-provider">Children's Dental Health Center</p>
+                </div>
+                <div class="course-card fade-in">
+                    <h3>Oral Surgery Techniques</h3>
+                    <p class="course-provider">Surgical Dentistry Institute</p>
+                </div>
+                <div class="course-card fade-in">
+                    <h3>Periodontics & Gum Health</h3>
+                    <p class="course-provider">Egyptian Periodontology Society</p>
+                </div>
+                <div class="course-card fade-in">
+                    <h3>Practice Management</h3>
+                    <p class="course-provider">Healthcare Business Academy</p>
+                </div>
+                <div class="course-card fade-in">
+                    <h3>Infection Control & Safety</h3>
+                    <p class="course-provider">WHO Healthcare Standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section-light" id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Expertise</p>
+                <h2 class="section-title">Skills & Competencies</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skills-category fade-in">
+                    <h3>Clinical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Restorative Dentistry</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Surgical Procedures</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Endodontics</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Cosmetic Dentistry</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Periodontics</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="82"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category fade-in">
+                    <h3>Professional Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Patient Communication</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="98"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Treatment Planning</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="92"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Digital Dentistry</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Emergency Care</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Team Collaboration</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="95"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects/Cases Section -->
+    <section class="section-dark" id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Portfolio</p>
+                <h2 class="section-title">Clinical Cases & Projects</h2>
+                <p class="section-description">
+                    Showcasing successful treatments and complex cases handled with precision and care
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">🦷</div>
+                    <div class="project-content">
+                        <h3>Full Mouth Rehabilitation</h3>
+                        <p>Complete dental restoration combining multiple specialties to restore function and aesthetics for patients with severe dental issues.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">✨</div>
+                    <div class="project-content">
+                        <h3>Smile Makeover</h3>
+                        <p>Comprehensive cosmetic dentistry treatments including veneers, whitening, and alignment to create beautiful, natural-looking smiles.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">🔧</div>
+                    <div class="project-content">
+                        <h3>Complex Endodontic Cases</h3>
+                        <p>Advanced root canal treatments using modern techniques and equipment to save teeth that would otherwise require extraction.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">🌟</div>
+                    <div class="project-content">
+                        <h3>Surgical Extractions</h3>
+                        <p>Skilled management of complex tooth extractions including impacted wisdom teeth with minimal patient discomfort.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">💎</div>
+                    <div class="project-content">
+                        <h3>Aesthetic Restorations</h3>
+                        <p>High-quality composite and ceramic restorations that blend seamlessly with natural teeth for optimal aesthetics.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">🛡️</div>
+                    <div class="project-content">
+                        <h3>Preventive Care Programs</h3>
+                        <p>Comprehensive preventive dentistry protocols to maintain oral health and prevent future dental problems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memberships Section -->
+    <section class="section-light" id="memberships">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Professional Involvement</p>
+                <h2 class="section-title">Memberships & Leadership</h2>
+            </div>
+            <div class="memberships-grid">
+                <div class="membership-card fade-in">
+                    <div class="membership-icon">👥</div>
+                    <h3>Egyptian Dental Association</h3>
+                    <p>Active Member</p>
+                </div>
+                <div class="membership-card fade-in">
+                    <div class="membership-icon">🌍</div>
+                    <h3>International Dental Federation</h3>
+                    <p>Associate Member</p>
+                </div>
+                <div class="membership-card fade-in">
+                    <div class="membership-icon">🎯</div>
+                    <h3>Mansoura Dental Society</h3>
+                    <p>Committee Member</p>
+                </div>
+                <div class="membership-card fade-in">
+                    <div class="membership-icon">📚</div>
+                    <h3>Continuing Education Facilitator</h3>
+                    <p>Workshop Organizer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="section-dark" id="languages">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Communication</p>
+                <h2 class="section-title">Languages</h2>
+            </div>
+            <div class="languages-container">
+                <div class="language-item fade-in">
+                    <div class="language-icon">🇪🇬</div>
+                    <h3>Arabic</h3>
+                    <p class="language-level">Native</p>
+                </div>
+                <div class="language-item fade-in">
+                    <div class="language-icon">🇬🇧</div>
+                    <h3>English</h3>
+                    <p class="language-level">Fluent</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-light" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Get In Touch</p>
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-description">
+                    Feel free to reach out for consultations, appointments, or any dental inquiries
+                </p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone (Calls)</h3>
+                    <a href="tel:+201554320932">+20 155 432 0932</a>
+                </div>
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/201005335441" target="_blank">+20 100 533 5441</a>
+                </div>
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:Magdysayed706@gmail.com">Magdysayed706@gmail.com</a>
+                </div>
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p style="color: var(--text-gray); margin-top: 0.5rem;">Mansoura, Egypt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Dr. Sayed Magdy Elamer</div>
+            <p class="footer-text">General Dentist | Mansoura, Egypt</p>
+            <div class="social-links">
+                <a href="mailto:Magdysayed706@gmail.com" class="social-link">📧</a>
+                <a href="https://wa.me/201005335441" target="_blank" class="social-link">💬</a>
+                <a href="tel:+201554320932" class="social-link">📞</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dr. Sayed Magdy Elamer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+        // ===== Theme & Language Management =====
+        const themeToggle = document.getElementById('themeToggle');
+        const langToggle = document.getElementById('langToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const langText = document.getElementById('langText');
+        const html = document.documentElement;
+
+        // Load saved preferences
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const savedLang = localStorage.getItem('language') || 'en';
+
+        // Apply saved theme
+        html.setAttribute('data-theme', savedTheme);
+        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+        // Apply saved language
+        html.setAttribute('lang', savedLang);
+        html.setAttribute('dir', savedLang === 'ar' ? 'rtl' : 'ltr');
+        langText.textContent = savedLang === 'en' ? 'العربية' : 'English';
+        updateLanguage(savedLang);
+
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // Language Toggle
+        langToggle.addEventListener('click', () => {
+            const currentLang = html.getAttribute('lang');
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            
+            html.setAttribute('lang', newLang);
+            html.setAttribute('dir', newLang === 'ar' ? 'rtl' : 'ltr');
+            localStorage.setItem('language', newLang);
+            langText.textContent = newLang === 'en' ? 'العربية' : 'English';
+            
+            updateLanguage(newLang);
+        });
+
+        // Update all translatable elements
+        function updateLanguage(lang) {
+            document.querySelectorAll('[data-en][data-ar]').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    // For elements with child nodes, handle carefully
+                    if (element.childNodes.length === 1 || element.children.length === 0) {
+                        element.textContent = text;
+                    } else {
+                        // Find text nodes and update them
+                        element.childNodes.forEach(node => {
+                            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                                node.textContent = text;
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        // ===== Mobile Menu Toggle =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ===== Navbar Scroll Effect =====
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== Scroll Animations =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // ===== Skill Bars Animation =====
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const progress = bar.getAttribute('data-progress');
+                        setTimeout(() => {
+                            bar.style.width = progress + '%';
+                        }, 200);
+                    });
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skills-category').forEach(category => {
+            skillObserver.observe(category);
+        });
+
+        // ===== Scroll to Top Button =====
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ===== Smooth Scroll for Anchor Links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== Active Navigation Link =====
+        const sections = document.querySelectorAll('section[id]');
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector(`.nav-links a[href="#${sectionId}"]`)?.classList.add('active');
+                } else {
+                    document.querySelector(`.nav-links a[href="#${sectionId}"]`)?.classList.remove('active');
+                }
+            });
+        });
+
+        // ===== Add Loading Animation =====
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // ===== Parallax Effect for Hero =====
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-content, .hero-image');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
