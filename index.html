@@ -1123,6 +1123,319 @@
             }
         }
 
+        /* ===== Atmosphere Section ===== */
+        .atmosphere-section {
+            position: relative;
+            min-height: 400px;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(72, 202, 228, 0.08) 0%, 
+                rgba(0, 168, 204, 0.05) 50%,
+                rgba(0, 119, 182, 0.08) 100%);
+            transition: background 0.8s ease;
+        }
+
+        [data-theme="dark"] .atmosphere-section {
+            background: linear-gradient(135deg, 
+                rgba(2, 62, 138, 0.15) 0%, 
+                rgba(0, 119, 182, 0.1) 50%,
+                rgba(0, 168, 204, 0.12) 100%);
+        }
+
+        .atmosphere-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .atmosphere-title {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .atmosphere-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Animated Background Layers */
+        .atmosphere-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Floating Clouds */
+        .cloud {
+            position: absolute;
+            background: radial-gradient(ellipse at center, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+            border-radius: 50%;
+            opacity: 0.6;
+            filter: blur(30px);
+            animation: floatCloud 40s infinite ease-in-out;
+        }
+
+        [data-theme="dark"] .cloud {
+            background: radial-gradient(ellipse at center, 
+                rgba(72, 202, 228, 0.2) 0%, 
+                rgba(0, 168, 204, 0.1) 50%,
+                transparent 100%);
+        }
+
+        .cloud-1 {
+            width: 300px;
+            height: 150px;
+            top: 20%;
+            left: -150px;
+            animation-delay: 0s;
+            animation-duration: 50s;
+        }
+
+        .cloud-2 {
+            width: 250px;
+            height: 120px;
+            top: 60%;
+            left: -100px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .cloud-3 {
+            width: 200px;
+            height: 100px;
+            top: 40%;
+            left: -80px;
+            animation-delay: 30s;
+            animation-duration: 55s;
+        }
+
+        @keyframes floatCloud {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            50% {
+                transform: translateX(calc(100vw + 300px)) translateY(-30px);
+            }
+            50.01% {
+                transform: translateX(-300px) translateY(-30px);
+            }
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
+        /* Floating Particles (Light Breeze) */
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: floatParticle 25s infinite ease-in-out;
+        }
+
+        .particle-1 {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle-2 {
+            top: 45%;
+            left: 30%;
+            animation-delay: 5s;
+        }
+
+        .particle-3 {
+            top: 70%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        .particle-4 {
+            top: 25%;
+            left: 70%;
+            animation-delay: 15s;
+        }
+
+        .particle-5 {
+            top: 55%;
+            left: 85%;
+            animation-delay: 20s;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.1;
+            }
+            25% {
+                transform: translate(30px, -50px) scale(1.2);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(-20px, -100px) scale(0.8);
+                opacity: 0.15;
+            }
+            75% {
+                transform: translate(40px, -70px) scale(1.1);
+                opacity: 0.25;
+            }
+        }
+
+        /* Light Rays Effect */
+        .light-ray {
+            position: absolute;
+            width: 2px;
+            height: 150px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(72, 202, 228, 0.15) 50%,
+                transparent 100%);
+            opacity: 0.5;
+            animation: lightRay 30s infinite ease-in-out;
+        }
+
+        [data-theme="dark"] .light-ray {
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(0, 168, 204, 0.2) 50%,
+                transparent 100%);
+        }
+
+        .light-ray-1 {
+            top: -50px;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .light-ray-2 {
+            top: -50px;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        .light-ray-3 {
+            top: -50px;
+            left: 80%;
+            animation-delay: 20s;
+        }
+
+        @keyframes lightRay {
+            0%, 100% {
+                transform: translateY(0) scaleY(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(100px) scaleY(1.5);
+                opacity: 0.6;
+            }
+        }
+
+        /* Gentle Rain Effect (Very Subtle) */
+        .raindrop {
+            position: absolute;
+            width: 1px;
+            height: 20px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(0, 168, 204, 0.3) 100%);
+            opacity: 0.2;
+            animation: rainFall 3s infinite linear;
+        }
+
+        .raindrop-1 {
+            top: -30px;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .raindrop-2 {
+            top: -30px;
+            left: 35%;
+            animation-delay: 0.5s;
+        }
+
+        .raindrop-3 {
+            top: -30px;
+            left: 55%;
+            animation-delay: 1s;
+        }
+
+        .raindrop-4 {
+            top: -30px;
+            left: 75%;
+            animation-delay: 1.5s;
+        }
+
+        .raindrop-5 {
+            top: -30px;
+            left: 90%;
+            animation-delay: 2s;
+        }
+
+        @keyframes rainFall {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.2;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(400px);
+                opacity: 0;
+            }
+        }
+
+        /* Pause animations for reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .cloud,
+            .particle,
+            .light-ray,
+            .raindrop {
+                animation: none;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .atmosphere-section {
+                min-height: 300px;
+            }
+
+            .atmosphere-container {
+                padding: 3rem 1.5rem;
+            }
+
+            .atmosphere-title {
+                font-size: 2rem;
+            }
+
+            .atmosphere-description {
+                font-size: 1rem;
+            }
+        }
+
         /* ===== Scroll to Top Button ===== */
         .scroll-top {
             position: fixed;
@@ -1212,6 +1525,48 @@
                     <img src="./assets/dr_sayed_1.jpeg" alt="Dr. Sayed Magdy Elamer">
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Atmosphere Section -->
+    <section class="atmosphere-section fade-in" id="atmosphere">
+        <div class="atmosphere-bg">
+            <!-- Floating Clouds -->
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+
+            <!-- Floating Particles (Breeze) -->
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+
+            <!-- Light Rays -->
+            <div class="light-ray light-ray-1"></div>
+            <div class="light-ray light-ray-2"></div>
+            <div class="light-ray light-ray-3"></div>
+
+            <!-- Gentle Rain (Very Subtle) -->
+            <div class="raindrop raindrop-1"></div>
+            <div class="raindrop raindrop-2"></div>
+            <div class="raindrop raindrop-3"></div>
+            <div class="raindrop raindrop-4"></div>
+            <div class="raindrop raindrop-5"></div>
+        </div>
+
+        <div class="atmosphere-container">
+            <h2 class="atmosphere-title" 
+                data-en="A Calm & Trusted Environment" 
+                data-ar="بيئة هادئة وموثوقة">
+                A Calm & Trusted Environment
+            </h2>
+            <p class="atmosphere-description" 
+                data-en="Experience professional dental care in a serene atmosphere designed for your comfort and peace of mind. Every detail reflects our commitment to excellence and patient wellbeing." 
+                data-ar="استمتع برعاية أسنان احترافية في جو هادئ مصمم لراحتك وراحة بالك. كل التفاصيل تعكس التزامنا بالتميز ورفاهية المرضى.">
+                Experience professional dental care in a serene atmosphere designed for your comfort and peace of mind. Every detail reflects our commitment to excellence and patient wellbeing.
+            </p>
         </div>
     </section>
 
@@ -1877,6 +2232,296 @@
                 element.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
+
+        // ===== Atmosphere Section Animation Control =====
+        const atmosphereObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const atmosphereBg = entry.target.querySelector('.atmosphere-bg');
+                if (entry.isIntersecting) {
+                    // Start animations when section is visible
+                    atmosphereBg.style.opacity = '1';
+                    entry.target.classList.add('visible');
+                } else {
+                    // Optional: pause animations when out of view for performance
+                    atmosphereBg.style.opacity = '0.5';
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        const atmosphereSection = document.querySelector('.atmosphere-section');
+        if (atmosphereSection) {
+            atmosphereObserver.observe(atmosphereSection);
+        }
+
+        // ===== CREATIVE JS ANIMATION 1: Particle Constellation Network =====
+        // Creates connecting lines between nearby particles for a network effect
+        function initParticleConstellation() {
+            const atmosphereBg = document.querySelector('.atmosphere-bg');
+            if (!atmosphereBg) return;
+
+            const particles = document.querySelectorAll('.particle');
+            const canvas = document.createElement('canvas');
+            canvas.style.position = 'absolute';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.pointerEvents = 'none';
+            canvas.style.zIndex = '0';
+            atmosphereBg.insertBefore(canvas, atmosphereBg.firstChild);
+
+            const ctx = canvas.getContext('2d');
+            let animationId;
+
+            function resizeCanvas() {
+                canvas.width = atmosphereSection.offsetWidth;
+                canvas.height = atmosphereSection.offsetHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            function drawConnections() {
+                if (!atmosphereSection.classList.contains('visible')) return;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const particlePositions = Array.from(particles).map(p => {
+                    const rect = p.getBoundingClientRect();
+                    const containerRect = atmosphereSection.getBoundingClientRect();
+                    return {
+                        x: rect.left - containerRect.left + rect.width / 2,
+                        y: rect.top - containerRect.top + rect.height / 2
+                    };
+                });
+
+                // Draw lines between nearby particles
+                for (let i = 0; i < particlePositions.length; i++) {
+                    for (let j = i + 1; j < particlePositions.length; j++) {
+                        const dx = particlePositions[i].x - particlePositions[j].x;
+                        const dy = particlePositions[i].y - particlePositions[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 250) {
+                            const opacity = (1 - distance / 250) * 0.15;
+                            const isDark = html.getAttribute('data-theme') === 'dark';
+                            ctx.strokeStyle = isDark 
+                                ? `rgba(72, 202, 228, ${opacity})` 
+                                : `rgba(0, 168, 204, ${opacity})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particlePositions[i].x, particlePositions[i].y);
+                            ctx.lineTo(particlePositions[j].x, particlePositions[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                animationId = requestAnimationFrame(drawConnections);
+            }
+
+            // Start drawing when section is visible
+            if (atmosphereSection.classList.contains('visible')) {
+                drawConnections();
+            }
+
+            // Listen for visibility changes
+            atmosphereObserver.observe(atmosphereSection);
+        }
+
+        // ===== CREATIVE JS ANIMATION 2: Interactive Wave Ripples =====
+        // Creates ripple effects on mouse movement with smooth propagation
+        function initWaveRipples() {
+            const atmosphereBg = document.querySelector('.atmosphere-bg');
+            if (!atmosphereBg) return;
+
+            let ripples = [];
+            let lastRippleTime = 0;
+            const rippleDelay = 300; // Minimum time between ripples (ms)
+
+            function createRipple(x, y) {
+                const now = Date.now();
+                if (now - lastRippleTime < rippleDelay) return;
+                lastRippleTime = now;
+
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.width = '10px';
+                ripple.style.height = '10px';
+                ripple.style.borderRadius = '50%';
+                ripple.style.border = '2px solid var(--primary-color)';
+                ripple.style.opacity = '0.5';
+                ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.zIndex = '1';
+                
+                atmosphereBg.appendChild(ripple);
+                ripples.push({ element: ripple, startTime: now });
+
+                // Animate ripple expansion
+                const duration = 2000;
+                const startTime = now;
+
+                function animate() {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    const scale = 1 + progress * 20;
+                    const opacity = 0.5 * (1 - progress);
+                    
+                    ripple.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                    ripple.style.opacity = opacity;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        ripple.remove();
+                        ripples = ripples.filter(r => r.element !== ripple);
+                    }
+                }
+                animate();
+            }
+
+            // Mouse move ripples (throttled)
+            atmosphereSection.addEventListener('mousemove', (e) => {
+                if (!atmosphereSection.classList.contains('visible')) return;
+                
+                const rect = atmosphereSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                createRipple(x, y);
+            });
+
+            // Auto-generate random ripples
+            function autoRipple() {
+                if (atmosphereSection.classList.contains('visible')) {
+                    const x = Math.random() * atmosphereSection.offsetWidth;
+                    const y = Math.random() * atmosphereSection.offsetHeight;
+                    createRipple(x, y);
+                }
+                setTimeout(autoRipple, 3000 + Math.random() * 2000);
+            }
+            autoRipple();
+        }
+
+        // ===== CREATIVE JS ANIMATION 3: Floating Orbs with Mouse Parallax =====
+        // Creates glowing orbs that follow mouse movement with depth-based parallax
+        function initFloatingOrbs() {
+            const atmosphereBg = document.querySelector('.atmosphere-bg');
+            if (!atmosphereBg) return;
+
+            const orbCount = 8;
+            const orbs = [];
+            let mouseX = 0;
+            let mouseY = 0;
+
+            // Create orbs
+            for (let i = 0; i < orbCount; i++) {
+                const orb = document.createElement('div');
+                orb.style.position = 'absolute';
+                orb.style.width = (15 + Math.random() * 25) + 'px';
+                orb.style.height = orb.style.width;
+                orb.style.borderRadius = '50%';
+                orb.style.pointerEvents = 'none';
+                orb.style.zIndex = '1';
+                orb.style.transition = 'all 0.3s ease-out';
+                
+                const isDark = html.getAttribute('data-theme') === 'dark';
+                const colors = isDark 
+                    ? ['rgba(72, 202, 228, 0.15)', 'rgba(0, 168, 204, 0.2)', 'rgba(0, 119, 182, 0.18)']
+                    : ['rgba(72, 202, 228, 0.2)', 'rgba(0, 168, 204, 0.15)', 'rgba(0, 119, 182, 0.12)'];
+                
+                orb.style.background = `radial-gradient(circle, ${colors[i % colors.length]} 0%, transparent 70%)`;
+                orb.style.filter = 'blur(15px)';
+
+                const depth = Math.random() * 0.5 + 0.3; // 0.3 to 0.8
+                const startX = Math.random() * 100;
+                const startY = Math.random() * 100;
+
+                orb.style.left = startX + '%';
+                orb.style.top = startY + '%';
+
+                atmosphereBg.appendChild(orb);
+                
+                orbs.push({
+                    element: orb,
+                    depth: depth,
+                    baseX: startX,
+                    baseY: startY,
+                    currentX: startX,
+                    currentY: startY,
+                    velocityX: (Math.random() - 0.5) * 0.5,
+                    velocityY: (Math.random() - 0.5) * 0.5
+                });
+            }
+
+            // Track mouse position
+            atmosphereSection.addEventListener('mousemove', (e) => {
+                const rect = atmosphereSection.getBoundingClientRect();
+                mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
+                mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
+            });
+
+            // Animate orbs
+            function animateOrbs() {
+                if (!atmosphereSection.classList.contains('visible')) {
+                    requestAnimationFrame(animateOrbs);
+                    return;
+                }
+
+                orbs.forEach(orb => {
+                    // Parallax effect based on mouse position and depth
+                    const parallaxX = mouseX * orb.depth * 30;
+                    const parallaxY = mouseY * orb.depth * 30;
+
+                    // Gentle floating motion
+                    orb.currentX += orb.velocityX;
+                    orb.currentY += orb.velocityY;
+
+                    // Bounce back towards base position
+                    const dx = orb.baseX - orb.currentX;
+                    const dy = orb.baseY - orb.currentY;
+                    orb.velocityX += dx * 0.001;
+                    orb.velocityY += dy * 0.001;
+
+                    // Apply damping
+                    orb.velocityX *= 0.98;
+                    orb.velocityY *= 0.98;
+
+                    // Update position
+                    orb.element.style.transform = `translate(${parallaxX}px, ${parallaxY}px)`;
+                    orb.element.style.left = orb.currentX + '%';
+                    orb.element.style.top = orb.currentY + '%';
+                });
+
+                requestAnimationFrame(animateOrbs);
+            }
+            animateOrbs();
+
+            // Update orb colors on theme change
+            themeToggle.addEventListener('click', () => {
+                setTimeout(() => {
+                    const isDark = html.getAttribute('data-theme') === 'dark';
+                    const colors = isDark 
+                        ? ['rgba(72, 202, 228, 0.15)', 'rgba(0, 168, 204, 0.2)', 'rgba(0, 119, 182, 0.18)']
+                        : ['rgba(72, 202, 228, 0.2)', 'rgba(0, 168, 204, 0.15)', 'rgba(0, 119, 182, 0.12)'];
+                    
+                    orbs.forEach((orb, i) => {
+                        orb.element.style.background = `radial-gradient(circle, ${colors[i % colors.length]} 0%, transparent 70%)`;
+                    });
+                }, 100);
+            });
+        }
+
+        // Initialize all creative animations when DOM is ready
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            initParticleConstellation();
+            initWaveRipples();
+            initFloatingOrbs();
+        }
     </script>
 </body>
 </html>
